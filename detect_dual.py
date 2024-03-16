@@ -59,6 +59,7 @@ def run(data=ROOT / 'data/coco.yaml'):
                     if view_img:
                         c = int(cls)
                         label = f'{names[c]} {conf:.2f}'
+                        print(f"detect 1 {names[c]} in {conf:.2f}")
                         annotator.box_label(xyxy, label, color=colors(c, True))
 
             im0 = annotator.result()
