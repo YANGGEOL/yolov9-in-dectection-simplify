@@ -19,7 +19,8 @@ from utils.torch_utils import select_device, smart_inference_mode
 
 @smart_inference_mode()
 def run(data=ROOT / 'data/coco.yaml'):
-    model = DetectMultiBackend("./weights/yolov9-e.pt", device=select_device('0'), dnn=False, data=data, fp16=False)
+    # model = DetectMultiBackend("./weights/yolov9-e.pt", device=select_device('0'), dnn=False, data=data, fp16=False)
+    model = DetectMultiBackend(r"E:\HZSY\program\yolov9\yolov9\weights\yolov9-e.pt", device=select_device('0'), dnn=False, data=data, fp16=False)
     stride, names, pt = model.stride, model.names, model.pt
     imgsz = check_img_size((640, 640), s=stride)
 
