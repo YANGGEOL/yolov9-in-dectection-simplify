@@ -29,7 +29,7 @@ def run(data=ROOT / 'data/coco.yaml'):
     bs = len(dataset)
 
     model.warmup(imgsz=(1 if pt or model.triton else bs, 3, *imgsz))
-    seen, windows, dt = 0, [], (Profile(), Profile(), Profile())
+    seen, dt = 0, (Profile(), Profile(), Profile())
     for path, im, im0s, vid_cap, s in dataset:
         with dt[0]:
             im = torch.from_numpy(im).to(model.device)
